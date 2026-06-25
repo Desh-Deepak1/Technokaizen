@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0B0F19; /* Fail-safe default color */
+    color: #F3F4F6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom high-performance global gradient background layout grid */
+  .global-cyber-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+    /* Shifting multi-directional gradient matrix from top-left to bottom-right */
+    background: linear-gradient(135deg, #0B0F19 0%, #0F172A 50%, #161F30 100%);
+  }
+
+  /* Pure CSS mathematical geometric technical line grid overlay layers */
+  .global-grid-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: center top;
+    pointer-events: none;
+  }
+}
+
+/* Custom horizontal scrolling utilities for standard layout control tracking */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
