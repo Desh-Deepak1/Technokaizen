@@ -75,9 +75,9 @@ export const siteContent = {
   team: {
     heading: "Core Engineering & Leadership",
     members: [
-      { id: "deepak", name: "DESH DEEPAK", role: "CEO", image: "/images/team/deepak.png", socials: { linkedin: "https://www.linkedin.com/in/desh-deepak-92425a332/", instagram: "#" } },
-      { id: "member-divyanshu", name: "DIVYANSHU MISHRA", role: "CTO", image: "/images/team/Divyanshu.png", socials: { linkedin: "https://www.linkedin.com/in/divyanshu-mishra-09b036345/", instagram: "#" } },
-      { id: "member-kritika", name: "KRITIKA OJHA", role: "AI Engineer", image: "/images/team/Kritika.png", socials: { linkedin: "https://www.linkedin.com/in/kritikaojha23", instagram: "#" } }
+      { id: "deepak", name: "DESH DEEPAK", role: "", image: "/images/team/deepak.png", socials: { linkedin: "https://www.linkedin.com/in/desh-deepak-92425a332/", instagram: "#" } },
+      { id: "member-divyanshu", name: "DIVYANSHU MISHRA", role: "", image: "/images/team/Divyanshu.png", socials: { linkedin: "https://www.linkedin.com/in/divyanshu-mishra-09b036345/", instagram: "#" } },
+      { id: "member-kritika", name: "KRITIKA OJHA", role: "", image: "/images/team/Kritika.png", socials: { linkedin: "https://www.linkedin.com/in/kritikaojha23", instagram: "#" } }
     ]
   }
 };
