@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth m-0 p-0 bg-[#0b1121]">
+    <html lang="en" className="scroll-smooth m-0 p-0">
       <head>
         <script src="https://cdn.tailwindcss.com"></script>
         <script dangerouslySetInnerHTML={{
@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
               theme: {
                 extend: {
                   colors: {
-                    'cyber-black': '#0b1121', // Lighter dark theme for better contrast
-                    'cyber-white': '#FFFFFF', 
-                    'cyber-gray': '#E2E8F0', // Brighter text for readability
+                    'cyber-black': '#1e293b', // Lighter slate-blue background
+                    'cyber-white': '#ffffff', // Pure white text
+                    'cyber-gray': '#f8fafc', // Bright gray for secondary text
                     'cyber-cyan': '#00FFCC',
                     'cyber-purple': '#D946EF',
                   }
@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
         <style dangerouslySetInnerHTML={{
           __html: `
             body {
-              background-color: #0b1121; /* Lighter background */
-              color: #E2E8F0; /* High visibility default text */
+              background-color: #1e293b;
+              color: #ffffff;
               font-family: Arial, Helvetica, sans-serif;
               margin: 0;
               padding: 0;
@@ -43,27 +43,33 @@ export default function RootLayout({ children }) {
             .backface-hidden { backface-visibility: hidden; }
             .rotate-y-180 { transform: rotateY(180deg); }
 
-            /* RESTORED GLOBAL GRID */
+            /* Fully Restored Global Grid */
             .cyber-grid-backdrop {
               position: fixed;
               top: 0;
               left: 0;
               width: 100vw;
               height: 100vh;
-              z-index: 1;
+              z-index: 0;
               pointer-events: none;
-              opacity: 0.35; /* Increased opacity so grid is visible */
-              background-size: 40px 40px;
+              background-size: 50px 50px;
               background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            }
+
+            /* Ensure content sits above the grid */
+            .content-wrapper {
+              position: relative;
+              z-index: 10;
+              width: 100%;
             }
           `
         }} />
       </head>
       <body className="antialiased">
         <div className="cyber-grid-backdrop" />
-        <div className="relative z-10 w-full">
+        <div className="content-wrapper">
           {children}
         </div>
       </body>
