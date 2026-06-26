@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
               theme: {
                 extend: {
                   colors: {
-                    'cyber-black': '#0b1121', /* Lighter dark base */
-                    'cyber-white': '#FFFFFF', 
-                    'cyber-gray': '#E2E8F0', /* High contrast gray */
+                    'cyber-black': '#070b14', /* Deep navy-black matching your image */
+                    'cyber-white': '#ffffff', /* Pure white text for readability */
+                    'cyber-gray': '#94a3b8', /* Readable light gray for secondary text */
                     'cyber-cyan': '#00FFCC',
                     'cyber-purple': '#D946EF',
                   }
@@ -29,8 +29,17 @@ export default function RootLayout({ children }) {
         <style dangerouslySetInnerHTML={{
           __html: `
             body {
-              background-color: #0b1121;
-              color: #FFFFFF;
+              /* Exact dark background from your image */
+              background-color: #070b14;
+              
+              /* The subtle, low-opacity grid pattern */
+              background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+              background-size: 40px 40px;
+              background-attachment: fixed; /* Keeps grid static while scrolling */
+              
+              color: #ffffff;
               font-family: Arial, Helvetica, sans-serif;
               margin: 0;
               padding: 0;
@@ -38,43 +47,21 @@ export default function RootLayout({ children }) {
               overflow-x: hidden;
             }
 
-            .perspective-1000 { perspective: 1000px; }
-            .transform-style-3d { transform-style: preserve-3d; }
-            .backface-hidden { backface-visibility: hidden; }
-            .rotate-y-180 { transform: rotateY(180deg); }
-
-            /* 100% VISIBLE GLOBAL GRID */
-            .cyber-grid-backdrop {
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100vw;
-              height: 100vh;
-              z-index: 0;
-              pointer-events: none;
-              background-color: #0b1121;
-              background-size: 40px 40px;
-              /* Premium Cyan-White mixed grid lines */
-              background-image: 
-                linear-gradient(to right, rgba(0, 255, 204, 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 255, 204, 0.1) 1px, transparent 1px);
-            }
-
-            /* FORCE SECTIONS TO BE TRANSPARENT TO REVEAL GRID */
+            /* FORCE ALL SECTIONS TO BE TRANSPARENT SO THE GRID IS 100% VISIBLE */
             main, section, div#connect, div#what-we-do {
               background-color: transparent !important;
             }
 
-            /* KEEP COMPONENT CARDS SOLID WITH GLASS BLUR FOR READABILITY */
+            /* Component cards remain solid with a slight glass blur for readability */
             .bg-\\[\\#0d1321\\], .bg-\\[\\#0a0f18\\], .bg-\\[\\#111827\\] {
-              background-color: rgba(13, 19, 33, 0.85) !important;
+              background-color: rgba(13, 19, 33, 0.7) !important;
               backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.05);
             }
           `
         }} />
       </head>
       <body className="antialiased">
-        <div className="cyber-grid-backdrop" />
         <div className="relative z-10 w-full">
           {children}
         </div>
